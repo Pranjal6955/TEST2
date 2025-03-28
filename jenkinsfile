@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("Checkout") {
             steps {
-                git : "https://github.com/Pranjal6955/TEST2.git" , branch: "main"
+                git : 'https://github.com/Pranjal6955/TEST2.git' , branch: 'main'
             }
         }
         stage("Build") {
@@ -21,7 +21,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                echo "Deploying the project"
+                echo 'Deploying the project'
             }
         }
     //     stage('Run JAR'){
