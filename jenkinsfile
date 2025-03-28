@@ -24,12 +24,9 @@ pipeline {
                 echo 'Deploying the project'
             }
         }
-        // Uncomment this stage if you want to run the JAR after build
-        // stage('Run JAR') {
-        //     steps {
-        //         def output = sh(script: 'java -jar target/jenkins-test-0.0.1-SNAPSHOT.jar', returnStdout: true)
-        //         echo "Output: ${output}"
-        //     }
-        // }
+       stage('Run JAR'){
+        def output=sh(script: 'java -jar target/TEST2-0.0.1-SNAPSHOT.jar', returnStdout: true).trim()
+        echo "Output from JAR: ${output}"
+        }
+       }
     }
-}
