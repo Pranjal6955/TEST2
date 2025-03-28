@@ -1,12 +1,12 @@
 pipeline {
-    agent any{}
-    tools{
+    agent any
+    tools {
         maven 'maven'
     }
     stages {
         stage("Checkout") {
             steps {
-                git : 'https://github.com/Pranjal6955/TEST2.git' , branch: 'main'
+                git branch: 'main', url: 'https://github.com/Pranjal6955/TEST2.git'
             }
         }
         stage("Build") {
@@ -24,11 +24,12 @@ pipeline {
                 echo 'Deploying the project'
             }
         }
-    //     stage('Run JAR'){
-    //         steps{
-    //             def output=sh(script: 'java -jar target/jenkins-test-0.0.1-SNAPSHOT.jar', returnStdout: true)
-    //             echo "Output: ${output}"
-    //     }
-    // }
-}
+        // Uncomment this stage if you want to run the JAR after build
+        // stage('Run JAR') {
+        //     steps {
+        //         def output = sh(script: 'java -jar target/jenkins-test-0.0.1-SNAPSHOT.jar', returnStdout: true)
+        //         echo "Output: ${output}"
+        //     }
+        // }
+    }
 }
